@@ -1,0 +1,52 @@
+﻿@model FirstResponsiveWebAppMorishita.Models.FutureResponse
+@{
+    ViewData["Title"] = "Birth Time Calculator";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="widh=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Birth Time Calculator</h1>
+    <form asp-action="Index" method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Name">Name: </label>
+                <input asp-for="Name" />
+            </div>
+            <div class="col">
+                <label asp-for="BirthYear">Birth Year: </label>
+                <input asp-for="BirthYear" />
+            </div>
+            <div class="col">
+                <label asp-for="BirthDay">Date of Birth (YYYY/MM/DD): </label>
+                <input asp-for="BirthDay" />
+            </div>
+        </div><!--end row-->
+
+        <div class="row">
+            <div class="col">
+                <label>Your Name: </label>
+                <input value="@ViewBag.Name" readonly />
+                <label>Age this Year: </label>
+                <input value="@ViewBag.AgeThisYear" readonly />
+                <label>Age as of Today: </label>
+                <input value="@ViewBag.AgeToday" readonly />
+            </div>
+        </div><!--end row-->
+
+        <div class="row">
+            <div class="col">
+                <button type="submit">Calculate</button>
+                <a asp-action="Index">Clear</a>
+            </div>
+        </div><!--end row-->
+
+    </form>
+</body>
+</html>
